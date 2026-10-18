@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}ConfigVault NOC - Cloud Sync{% endblock %}
+{% block title %}konfiva NOC - Cloud Sync{% endblock %}
 {% block content %}
 <div class="cloud-page">
     <h1>☁️ Cloud Sync</h1>
@@ -10,13 +10,13 @@
                 <div class="cloud-icon">📦</div>
                 <div class="cloud-name">Amazon S3</div>
                 <div class="cloud-status enabled">✅ Enabled</div>
-                <div class="cloud-path">s3://configvault-backups</div>
+                <div class="cloud-path">s3://konfiva-backups</div>
             </div>
             <div class="cloud-card">
                 <div class="cloud-icon">🐦</div>
                 <div class="cloud-name">Google Drive</div>
                 <div class="cloud-status enabled">✅ Enabled</div>
-                <div class="cloud-path">gdrive/configvault-backups</div>
+                <div class="cloud-path">gdrive/konfiva-backups</div>
             </div>
             <div class="cloud-card">
                 <div class="cloud-icon">📧</div>
@@ -28,14 +28,14 @@
                 <div class="cloud-icon">☁️</div>
                 <div class="cloud-name">Backblaze B2</div>
                 <div class="cloud-status enabled">✅ Enabled</div>
-                <div class="cloud-path">b2://configvault-backups</div>
+                <div class="cloud-path">b2://konfiva-backups</div>
             </div>
         </div>
     </div>
     <div class="section">
         <h2>Manual Sync</h2>
         <form class="sync-form">
-            <input type="text" placeholder="Remote path (optional)" id="sync-remote" value="/var/lib/configvault/backup">
+            <input type="text" placeholder="Remote path (optional)" id="sync-remote" value="/var/lib/konfiva/backup">
             <button type="submit">🔄 Sync Now</button>
         </form>
     </div>

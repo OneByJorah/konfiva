@@ -3,7 +3,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-echo "=== Installing ConfigVault ==="
+echo "=== Installing konfiva ==="
 
 if ! command -v python3 &> /dev/null; then
     echo "Python 3 is required. Install from https://python.org/"
@@ -27,7 +27,7 @@ fi
 mkdir -p instance config configs
 
 echo ""
-echo "ConfigVault installed. Start it with:"
+echo "konfiva installed. Start it with:"
 echo "  ./venv/bin/python app.py"
 echo ""
 echo "Or use Docker:"

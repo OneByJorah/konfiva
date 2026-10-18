@@ -47,7 +47,7 @@ def load_config(version):
     return {
         "hostname": "router-1",
         "interface": "GigabitEthernet0/0",
-        "ip_address": "192.168.1.1",
+        "ip_address": "192.0.2.1",
         "subnet_mask": "255.255.255.0",
         "description": "Main router",
     }

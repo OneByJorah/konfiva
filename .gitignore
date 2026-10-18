@@ -37,8 +37,8 @@ node_modules/
 
 # OneByJorah portfolio tooling
 .venv-screenshot/
-venv-configvault/
+venv-konfiva/
 .env
 instance/
 configs/
-configvault.db
+konfiva.db

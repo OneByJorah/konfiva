@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}ConfigVault NOC{% endblock %}</title>
+    <title>{% block title %}konfiva NOC{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <nav class="sidebar">
-        <div class="logo">🔒 ConfigVault NOC</div>
+        <div class="logo">🔒 konfiva NOC</div>
         <ul>
             <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
             <li><a href="{{ url_for('devices_page') }}">🖥️ Devices</a></li>
@@ -19,7 +19,7 @@
             <li><a href="{{ url_for('sync_page') }}">☁️ Cloud</a></li>
         </ul>
     </nav>
-    <main class="content">
+    <main class="content" id="app-ready">
         {% block content %}{% endblock %}
     </main>
 </body>

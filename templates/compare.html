@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}ConfigVault NOC - Compare{% endblock %}
+{% block title %}konfiva NOC - Compare{% endblock %}
 {% block content %}
 <div class="compare-page">
     <h1>🔍 Compare Configs</h1>
@@ -32,8 +32,8 @@
                 <div class="diff-content">
                     <div class="diff-line removed"><span class="diff-marker">-</span><span class="diff-content">router ospf 1</span></div>
                     <div class="diff-line"><span class="diff-marker"> </span><span class="diff-content">router-id 1.1.1.1</span></div>
-                    <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">network 192.168.1.0 0.0.0.255 area 0</span></div>
-                    <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">network 192.168.2.0 0.0.0.255 area 0</span></div>
+                    <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">network 192.0.2.0 0.0.0.255 area 0</span></div>
+                    <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">network 198.51.100.0 0.0.0.255 area 0</span></div>
                     <div class="diff-line"><span class="diff-marker"> </span><span class="diff-content">passive-interface default</span></div>
                     <div class="diff-line removed"><span class="diff-marker">-</span><span class="diff-content">no passive-interface GigabitEthernet0/0</span></div>
                     <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">passive-interface GigabitEthernet0/0</span></div>
@@ -51,8 +51,8 @@
                 <div class="diff-content">
                     <div class="diff-line removed"><span class="diff-marker">-</span><span class="diff-content">router ospf 1</span></div>
                     <div class="diff-line"><span class="diff-marker"> </span><span class="diff-content">router-id 1.1.1.1</span></div>
-                    <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">network 192.168.1.0 0.0.0.255 area 0</span></div>
-                    <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">network 192.168.2.0 0.0.0.255 area 0</span></div>
+                    <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">network 192.0.2.0 0.0.0.255 area 0</span></div>
+                    <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">network 198.51.100.0 0.0.0.255 area 0</span></div>
                     <div class="diff-line"><span class="diff-marker"> </span><span class="diff-content">passive-interface default</span></div>
                     <div class="diff-line removed"><span class="diff-marker">-</span><span class="diff-content">no passive-interface GigabitEthernet0/0</span></div>
                     <div class="diff-line added"><span class="diff-marker">+</span><span class="diff-content">passive-interface GigabitEthernet0/0</span></div>

@@ -27,9 +27,9 @@ def trigger_backup():
     device = Device.query.filter_by(name=device_name).first_or_404()
 
     if mode == "full":
-        config = f"/var/lib/configvault/backup/{device.name}_running.conf"
+        config = f"/var/lib/konfiva/backup/{device.name}_running.conf"
     else:
-        config = f"/var/lib/configvault/backup/{device.name}_startup.conf"
+        config = f"/var/lib/konfiva/backup/{device.name}_startup.conf"
 
     backup = Backup(
         device_id=device.id,

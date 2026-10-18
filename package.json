@@ -1,5 +1,5 @@
 {
-  "name": "configvault",
+  "name": "konfiva",
   "version": "1.0.0",
   "description": "<div align=\"center\">   <img src=\"https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white\">   <img src=\"https://img.shields.io/badge/Flask-000?style=for-the-badge&logo=flask&logoColor=white\">   <img src=\"https://img.shields.io/badge/SQLAlchemy-FF6C37?style=for-the-badge&logo=python&logoColor=white\">   <img src=\"https://img.shields.io/badge/rclone-00A6A6?style=for-the-badge&logo=googlecloud&logoColor=white\"> </div>",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OneByJorah/ConfigVault.git"
+    "url": "git+https://github.com/OneByJorah/konfiva.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OneByJorah/ConfigVault/issues"
+    "url": "https://github.com/OneByJorah/konfiva/issues"
   },
-  "homepage": "https://github.com/OneByJorah/ConfigVault#readme",
+  "homepage": "https://github.com/OneByJorah/konfiva#readme",
   "devDependencies": {
     "@playwright/test": "^1.61.1"
   }

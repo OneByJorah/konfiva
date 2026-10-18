@@ -26,7 +26,7 @@ def trigger_sync():
         return jsonify({"error": "Cloud sync is disabled"}), 503
 
     data = request.get_json() or {}
-    remote_path = data.get("remote_path", "/var/lib/configvault/backup")
+    remote_path = data.get("remote_path", "/var/lib/konfiva/backup")
     cloud_type = data.get("cloud_type", "s3")
     cloud_path = data.get("cloud_path", "")
 

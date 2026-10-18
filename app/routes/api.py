@@ -18,7 +18,7 @@ def token_required(f):
 @token_required
 def api_root():
     return jsonify({
-        "service": "ConfigVault NOC API",
+        "service": "konfiva NOC API",
         "version": "1.0.0",
         "endpoints": {
             "devices": "/api/v1/devices",
