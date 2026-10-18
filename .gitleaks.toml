@@ -4,5 +4,7 @@ title = "gitleaks config"
 useDefault = true
 
 [allowlist]
-description = "Example env files hold placeholders only"
+description = "Example env files and README curl examples hold placeholders only"
 paths = ['''\.env\.example$''']
+regexes = ['''Authorization: Bearer \*\*\*''']
+commits = ['''accd36bb0e0e0cd2ccfabf35ce73e541c1f18284''']
