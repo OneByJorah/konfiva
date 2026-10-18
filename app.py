@@ -1,4 +1,4 @@
-"""Entry point for ConfigVault NOC application.
+"""Entry point for konfiva NOC application.
 
 Usage:
     python3 app.py

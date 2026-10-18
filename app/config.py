@@ -1,19 +1,19 @@
-"""Configuration settings for ConfigVault NOC."""
+"""Configuration settings for konfiva NOC."""
 
 import os
 
 # Server
-SERVER_NAME = os.getenv("SERVER_NAME", "configvault.local")
+SERVER_NAME = os.getenv("SERVER_NAME", "konfiva.local")
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")
 
 # Database
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///configvault.db")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///konfiva.db")
 
 # FTP
 FTP_ENABLED = os.getenv("FTP_ENABLED", "true").lower() == "true"
 FTP_HOST = os.getenv("FTP_HOST", "127.0.0.1")
 FTP_PORT = int(os.getenv("FTP_PORT", "21"))
-FTP_USER = os.getenv("FTP_USER", "configvault")
+FTP_USER = os.getenv("FTP_USER", "konfiva")
 FTP_PASS = os.getenv("FTP_PASS", "")
 FTP_SSL = os.getenv("FTP_SSL", "true").lower() == "true"
 
@@ -26,7 +26,7 @@ SFTP_PORT = int(os.getenv("SFTP_PORT", "22"))
 TFTP_ENABLED = os.getenv("TFTP_ENABLED", "true").lower() == "true"
 TFTP_HOST = os.getenv("TFTP_HOST", "127.0.0.1")
 TFTP_PORT = int(os.getenv("TFTP_PORT", "69"))
-TFTP_ROOT = os.getenv("TFTP_ROOT", "/var/lib/configvault/tftp")
+TFTP_ROOT = os.getenv("TFTP_ROOT", "/var/lib/konfiva/tftp")
 
 # Oxidized
 OXIDIZED_ENABLED = os.getenv("OXIDIZED_ENABLED", "true").lower() == "true"
@@ -35,12 +35,12 @@ OXIDIZED_API_KEY = os.getenv("OXIDIZED_API_KEY", "")
 
 # Git
 GIT_ENABLED = os.getenv("GIT_ENABLED", "true").lower() == "true"
-GIT_REPO = os.getenv("GIT_REPO", "/var/lib/configvault/configs")
+GIT_REPO = os.getenv("GIT_REPO", "/var/lib/konfiva/configs")
 GIT_BRANCH = os.getenv("GIT_BRANCH", "main")
 
 # Cloud Sync
 CLOUD_SYNC = os.getenv("CLOUD_SYNC", "false").lower() == "true"
-RCLONE_CONFIG = os.getenv("RCLONE_CONFIG", "/etc/configvault/rclone.conf")
+RCLONE_CONFIG = os.getenv("RCLONE_CONFIG", "/etc/konfiva/rclone.conf")
 
 # Notifications
 SLACK_WEBHOOK = os.getenv("SLACK_WEBHOOK", "")

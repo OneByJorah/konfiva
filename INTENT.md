@@ -1,6 +1,6 @@
 # INTENT.md — J1-PIPELINE Phase -1 (ORACLE)
 
-**Repository:** `OneByJorah/ConfigVault`
+**Repository:** `OneByJorah/konfiva`
 **Analysis Date:** 2026-07-05
 **Analyst:** J1-PIPELINE ORACLE (read-only)
 **Status:** Intent Reconstructed
@@ -11,7 +11,7 @@
 
 ### Technical Role
 
-**ConfigVault** (package name: `j1-configvault`, v1.0.0) is a **Network Backup & Asset Management Dashboard** — a Flask-based web application and REST API that serves as a centralized Network Operations Center (NOC) console for managing network device configurations across an enterprise infrastructure.
+**konfiva** (package name: `j1-konfiva`, v1.0.0) is a **Network Backup & Asset Management Dashboard** — a Flask-based web application and REST API that serves as a centralized Network Operations Center (NOC) console for managing network device configurations across an enterprise infrastructure.
 
 **Core capabilities:**
 
@@ -28,7 +28,7 @@
 
 ### Operational Role
 
-ConfigVault is the **centralized backup and observability layer** for network infrastructure within the JorahOne ecosystem. It replaces ad-hoc, per-device backup scripts with a unified dashboard that provides:
+konfiva is the **centralized backup and observability layer** for network infrastructure within the JorahOne ecosystem. It replaces ad-hoc, per-device backup scripts with a unified dashboard that provides:
 
 - **Single pane of glass** for all network device configurations
 - **Automated backup lifecycle** — schedule, execute, verify, store, version
@@ -60,11 +60,11 @@ Network engineers managing fleets of heterogeneous devices (Cisco IOS-XE, Junipe
 | **Vendor-specific tools** (Cisco Prime, Juniper Space) | Single-vendor lock-in, expensive licensing |
 | **Commercial NMS** (SolarWinds, PRTG) | Expensive, overkill for config backup, proprietary |
 
-ConfigVault fills the gap between **heavy commercial NMS** and **fragile shell scripts** — a lightweight, open-source, multi-vendor NOC dashboard purpose-built for configuration backup and recovery.
+konfiva fills the gap between **heavy commercial NMS** and **fragile shell scripts** — a lightweight, open-source, multi-vendor NOC dashboard purpose-built for configuration backup and recovery.
 
 ### What Triggered Development
 
-The initial commit (`accd36b`, 2026-06-15) is titled *"Initial commit: Build complete ConfigVault NOC platform"* — a **greenfield project** that shipped 27 files and 2,450 lines of code in a single commit. The original README (604 lines) was far more detailed than the current one, including:
+The initial commit (`accd36b`, 2026-06-15) is titled *"Initial commit: Build complete konfiva NOC platform"* — a **greenfield project** that shipped 27 files and 2,450 lines of code in a single commit. The original README (604 lines) was far more detailed than the current one, including:
 
 - Full Mermaid architecture diagrams showing the system topology
 - Detailed setup instructions for FTP (vsftpd), SFTP (OpenSSH), TFTP (tftpd-hpa), and Oxidized
@@ -72,19 +72,19 @@ The initial commit (`accd36b`, 2026-06-15) is titled *"Initial commit: Build com
 - Monitoring and logging instructions
 - Security documentation (network security, authentication, encryption)
 
-The original README branded it as **"ConfigVault NOC"** and described it as *"a comprehensive, open-source Linux-based platform for network configuration backup, file transfer, and device management."* The repo was later renamed from an earlier name to simply "ConfigVault" and standardized to J1 portfolio conventions.
+The original README branded it as **"konfiva NOC"** and described it as *"a comprehensive, open-source Linux-based platform for network configuration backup, file transfer, and device management."* The repo was later renamed from an earlier name to simply "konfiva" and standardized to J1 portfolio conventions.
 
 ### JorahOne Ecosystem Fit
 
-ConfigVault is one of several infrastructure-management tools in the **OneByJorah** organization. It provides the network backup and observability layer for the JorahOne operational tooling stack.
+konfiva is one of several infrastructure-management tools in the **OneByJorah** organization. It provides the network backup and observability layer for the JorahOne operational tooling stack.
 
 ```
 JorahOne Ecosystem
-├── ConfigVault          ← Network backup & asset management (this repo)
+├── konfiva          ← Network backup & asset management (this repo)
 ├── [Other J1 repos]  ← Infrastructure, monitoring, security, automation
 ```
 
-- **Package name**: `j1-configvault` (v1.0.0)
+- **Package name**: `j1-konfiva` (v1.0.0)
 - **License**: MIT (originally GPL v3 in initial commit, changed during J1 standardization)
 - **J1 standards**: Follows J1 repo template conventions (README, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT, GitHub workflows, Dependabot, issue/PR templates)
 
@@ -125,9 +125,9 @@ JorahOne Ecosystem
 
 4. **Token-based API auth** — Simple Bearer token authentication using the configured `SECRET_KEY`; no session management, no OAuth — appropriate for an internal NOC tool
 
-5. **rclone for cloud sync** — Rather than implementing cloud storage adapters directly, ConfigVault shells out to `rclone` — a battle-tested tool supporting 40+ storage providers
+5. **rclone for cloud sync** — Rather than implementing cloud storage adapters directly, konfiva shells out to `rclone` — a battle-tested tool supporting 40+ storage providers
 
-6. **Oxidized integration** — Rather than building a multi-vendor config parser, ConfigVault integrates with Oxidized (the de facto standard open-source config collector) via its REST API
+6. **Oxidized integration** — Rather than building a multi-vendor config parser, konfiva integrates with Oxidized (the de facto standard open-source config collector) via its REST API
 
 7. **Multi-protocol transport** — Supports SSH (paramiko/fabric), FTP/FTPS, SFTP, and TFTP — covering the full range of device access methods found in enterprise networks
 
@@ -138,7 +138,7 @@ JorahOne Ecosystem
 ## Repository Structure
 
 ```
-ConfigVault/
+konfiva/
 ├── app/                           # Flask application
 │   ├── __init__.py                # App factory with YAML config loading
 │   ├── config.py                  # Environment-based configuration (FTP, SFTP, TFTP, Oxidized, Git, Cloud, Notifications)
@@ -179,7 +179,7 @@ ConfigVault/
 │   │   └── feature_request.md     # Feature request template
 │   └── PULL_REQUEST_TEMPLATE.md   # PR template with checklist
 ├── requirements.txt               # Python dependencies
-├── setup.py                       # Package setup (j1-configvault v1.0.0)
+├── setup.py                       # Package setup (j1-konfiva v1.0.0)
 ├── README.md                      # Project documentation
 ├── LICENSE                        # MIT License
 ├── CODE_OF_CONDUCT.md             # Contributor Covenant v2.1
@@ -228,13 +228,13 @@ ConfigVault/
 
 4. **License change** — The initial commit used GPL v3; the current LICENSE is MIT. This was changed during J1 portfolio standardization.
 
-5. **Repo rename** — The initial commit branded it as "ConfigVault NOC" with a repo URL referencing `ConfigVault-NOC`. It was later renamed to just `ConfigVault` and the README was simplified from 604 lines to 81 lines.
+5. **Repo rename** — The initial commit branded it as "konfiva NOC" with a repo URL referencing `konfiva-NOC`. It was later renamed to just `konfiva` and the README was simplified from 604 lines to 81 lines.
 
 6. **Hardcoded demo data in templates** — All Jinja2 templates contain static sample data (device names, backup history, alert entries) rather than rendering from the database. The frontend is a static mockup that needs to be wired to the API.
 
 7. **`compare.py` has demo fallback** — The `load_config()` function returns a hardcoded sample config with a comment "In production, this would read from the actual backup file. For demo, return a sample config." This is demo/placeholder code in a production-classified repo.
 
-8. **`push.yml` workflow** — Contains a hardcoded email (`admin@configvault.local`) and an auto-commit-and-push pattern that could cause issues. The latest commit (`2e1cb37`) sanitized email references.
+8. **`push.yml` workflow** — Contains a hardcoded email (`admin@konfiva.local`) and an auto-commit-and-push pattern that could cause issues. The latest commit (`2e1cb37`) sanitized email references.
 
 9. **No test files found** — The `test.yml` workflow runs `pytest --cov=app`, but no test files exist in the repo. Tests would all pass with 0% coverage.
 

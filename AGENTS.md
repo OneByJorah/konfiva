@@ -4,10 +4,10 @@ Instructions for AI coding agents (OpenCode, Freebuff/Codebuff, Hermes workers, 
 
 ## Project
 
-- **What it is:** replace with one sentence.
-- **Stack:** replace (language, framework, runtime).
-- **Run locally:** `cp .env.example .env && docker compose up -d --build`, then open `http://127.0.0.1:8080`.
-- **Health check:** `GET /healthz` must return 200.
+- **What it is:** A self-hosted network configuration backup and asset manager for small NOC teams — inventory devices, schedule backups, diff snapshots, and sync to cloud storage.
+- **Stack:** Python 3.11, Flask 3, SQLAlchemy 2, SQLite/PostgreSQL, Docker Compose.
+- **Run locally:** `cp .env.example .env && docker compose up -d --build`, then open `http://127.0.0.1:8103`.
+- **Health check:** `GET /api/v1/health` must return 200.
 
 ## Commands
 

@@ -26,9 +26,9 @@ def create_app():
             config = yaml.safe_load(f)
     else:
         config = {
-            "SERVER_NAME": "configvault.local",
+            "SERVER_NAME": "konfiva.local",
             "SECRET_KEY": "dev-secret-key",
-            "DATABASE_URL": "sqlite:///configvault.db",
+            "DATABASE_URL": "sqlite:///konfiva.db",
             "FTP_ENABLED": True,
             "SFTP_ENABLED": True,
             "TFTP_ENABLED": True,
@@ -39,9 +39,9 @@ def create_app():
 
     app.config.update({
         "SECRET_KEY": config.get("SECRET_KEY", "dev-secret-key"),
-        "DATABASE_URL": config.get("DATABASE_URL", "sqlite:///configvault.db"),
-        "SQLALCHEMY_DATABASE_URI": config.get("DATABASE_URL", "sqlite:///configvault.db"),
-        "SERVER_NAME": config.get("SERVER_NAME", "configvault.local"),
+        "DATABASE_URL": config.get("DATABASE_URL", "sqlite:///konfiva.db"),
+        "SQLALCHEMY_DATABASE_URI": config.get("DATABASE_URL", "sqlite:///konfiva.db"),
+        "SERVER_NAME": config.get("SERVER_NAME", "konfiva.local"),
     })
 
     db.init_app(app)

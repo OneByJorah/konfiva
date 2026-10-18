@@ -10,8 +10,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Configure Git
         run: |
-          git config --global user.email "bot@configvault.local"
-          git config --global user.name "ConfigVault Bot"
+          git config --global user.email "bot@konfiva.local"
+          git config --global user.name "konfiva Bot"
       - name: Commit and Push
         run: |
           git add -A
