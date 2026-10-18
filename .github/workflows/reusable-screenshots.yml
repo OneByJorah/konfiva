@@ -82,7 +82,12 @@ jobs:
           INSTALL_DEPS: ${{ inputs.install-deps }}
         run: |
           npm install --no-save playwright
-          if [ "$INSTALL_DEPS" = "true" ]; then npx playwright install --with-deps chromium; else npx playwright install chromium; fi
+          # Install browsers via the exact playwright binary the capture script imports
+          # (node resolution), not `npx playwright`: npx can resolve a different
+          # playwright version than the script's `import "playwright"`, so the downloaded
+          # browser revision mismatches and launch fails with
+          # "Executable doesn't exist at ~/.cache/ms-playwright/chromium_headless_shell-<rev>".
+          if [ "$INSTALL_DEPS" = "true" ]; then node node_modules/playwright/cli.js install --with-deps chromium; else node node_modules/playwright/cli.js install chromium; fi
 
       - name: Capture screenshots
         run: node "$SCREENSHOT_SCRIPT"
