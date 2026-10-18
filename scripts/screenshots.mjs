@@ -11,13 +11,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 
-const BASE = process.env.BASE_URL || "http://127.0.0.1:8080";
+const BASE = process.env.BASE_URL || "http://127.0.0.1:8103";
 const OUT = process.env.OUT_DIR || "docs/screenshots";
 const RECORD = process.env.RECORD === "1";
 
 // Edit this list per project: one entry per screen worth showing.
 const PAGES = [
   { name: "dashboard", path: "/", waitFor: "#app-ready" },
+  { name: "devices", path: "/devices", waitFor: "#app-ready" },
+  { name: "backup", path: "/backup", waitFor: "#app-ready" },
 ];
 
 const FORBIDDEN = [
@@ -53,7 +55,7 @@ let failed = false;
 for (const p of PAGES) {
   const page = await context.newPage();
   await page.goto(new URL(p.path, BASE).toString(), { waitUntil: "networkidle" });
-  if (p.waitFor) await page.waitForSelector(p.waitFor, { timeout: 15000 });
+  if (p.waitFor) await page.waitForSelector(p.waitFor, { timeout: 15000, state: "attached" });
 
   const text = (await page.evaluate(() => document.body.innerText)) + "\n" + (await page.title());
   const hits = FORBIDDEN.filter((f) => f.re.test(text)).map((f) => f.label);

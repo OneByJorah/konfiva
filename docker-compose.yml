@@ -1,24 +1,25 @@
 version: "3.8"
 
 services:
-  configvault:
+  konfiva:
+    image: ghcr.io/onebyjorah/konfiva:latest
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: configvault
-    hostname: configvault.local
+    container_name: konfiva
+    hostname: konfiva.local
     ports:
       - "127.0.0.1:8103:8103"
     volumes:
       - ./instance:/app/instance
       - ./config:/app/config
-      - ./configs:/var/lib/configvault/configs
+      - ./configs:/var/lib/konfiva/configs
     env_file:
       - .env
     environment:
       - FLASK_ENV=production
       - FLASK_DEBUG=0
-      - SQLALCHEMY_DATABASE_URI=sqlite:///instance/configvault.db
+      - SQLALCHEMY_DATABASE_URI=sqlite:///instance/konfiva.db
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8103/api/v1/health', timeout=5)\""]
