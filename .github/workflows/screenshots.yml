@@ -21,7 +21,10 @@ concurrency:
 jobs:
   screenshots:
     uses: ./.github/workflows/reusable-screenshots.yml
+    with:
+      # The demo stack listens on 127.0.0.1:8103 with its health endpoint at /api/v1/health.
+      base-url: http://127.0.0.1:8103
+      health-url: http://127.0.0.1:8103/api/v1/health
     # To use your self-hosted runner (trusted events only):
-    # with:
     #   runner: self-hosted
     #   install-deps: false
