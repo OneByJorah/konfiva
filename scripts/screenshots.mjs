@@ -40,10 +40,29 @@ if (RECORD) fs.mkdirSync(videoDir, { recursive: true });
 
 // CHROMIUM_PATH: use an existing Chrome/Chromium instead of Playwright's download (handy on a prepared runner).
 // NO_SANDBOX=1: needed when running as root inside some containers.
-const browser = await chromium.launch({
-  executablePath: process.env.CHROMIUM_PATH || undefined,
-  args: process.env.NO_SANDBOX === "1" ? ["--no-sandbox"] : [],
-});
+// If the browsers for THIS playwright version aren't installed (e.g. CI installed
+// them via a different playwright), self-heal with our own cli.js, then retry once.
+async function launch() {
+  try {
+    return await chromium.launch({
+      executablePath: process.env.CHROMIUM_PATH || undefined,
+      args: process.env.NO_SANDBOX === "1" ? ["--no-sandbox"] : [],
+    });
+  } catch (e) {
+    if (!/Executable doesn't exist/.test(String(e))) throw e;
+    console.error("Browser executable missing; installing browsers via this playwright, then retrying...");
+    spawnSync(
+      process.execPath,
+      [new URL("../node_modules/playwright/cli.js", import.meta.url).pathname, "install", "chromium"],
+      { stdio: "inherit" },
+    );
+    return chromium.launch({
+      executablePath: process.env.CHROMIUM_PATH || undefined,
+      args: process.env.NO_SANDBOX === "1" ? ["--no-sandbox"] : [],
+    });
+  }
+}
+const browser = await launch();
 const context = await browser.newContext({
   viewport: { width: 1440, height: 900 },
   deviceScaleFactor: 2,
